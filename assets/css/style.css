@@ -1,0 +1,157 @@
+:root {
+  --bg-color: #0d0a1a;
+  --card-bg: #16122b;
+  --accent-purple: #a855f7;
+  --accent-glow: rgba(168, 85, 247, 0.4);
+  --text-color: #f3e8ff;
+  --text-dim: #a8a29e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(168, 85, 247, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(126, 34, 206, 0.1), transparent 30%);
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card-bg);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Dil Değiştirme Butonu */
+.lang-toggle {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid var(--accent-purple);
+  color: var(--text-color);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-toggle:hover {
+  background: var(--accent-purple);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent-purple);
+}
+
+.profile-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 12px var(--accent-purple);
+  margin-bottom: 6px;
+  margin-top: 10px;
+}
+
+.profile-header p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Rscripts Embed Kartı */
+.embed-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.embed-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+.embed-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Sosyal Medya Buton Stilleri */
+.link-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  transition: all 0.25s ease;
+}
+
+.link-btn i {
+  font-size: 1.3rem;
+  width: 25px;
+  text-align: center;
+}
+
+/* Hover Efektleri ve Özel Renkler */
+.link-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px var(--accent-glow);
+  background: rgba(168, 85, 247, 0.15);
+}
+
+.link-btn.github:hover { border-color: #2ea44f; box-shadow: 0 0 15px rgba(46, 164, 79, 0.4); }
+.link-btn.gist:hover { border-color: #79c0ff; box-shadow: 0 0 15px rgba(121, 192, 255, 0.4); }
+.link-btn.youtube:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+.link-btn.curseforge:hover { border-color: #f16436; box-shadow: 0 0 15px rgba(241, 100, 54, 0.4); }
+.link-btn.discord:hover { border-color: #5865f2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
+
+.footer {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
