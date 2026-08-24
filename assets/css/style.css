@@ -1,4 +1,7 @@
-:root {
+/* ----------------------------------------------------
+   10 FARKLI CYBER-NEON TEMA SİSTEMİ
+   ---------------------------------------------------- */
+:root, [data-theme="purple"] {
   --bg-color: #0d0a1a;
   --card-bg: #16122b;
   --accent-purple: #a855f7;
@@ -7,6 +10,90 @@
   --text-dim: #a8a29e;
 }
 
+[data-theme="cyber-cyan"] {
+  --bg-color: #06181d;
+  --card-bg: #0b252c;
+  --accent-purple: #06b6d4;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --text-color: #e0f2fe;
+  --text-dim: #94a3b8;
+}
+
+[data-theme="matrix-green"] {
+  --bg-color: #051a0e;
+  --card-bg: #0b2b18;
+  --accent-purple: #22c55e;
+  --accent-glow: rgba(34, 197, 94, 0.4);
+  --text-color: #dcfce7;
+  --text-dim: #86efac;
+}
+
+[data-theme="crimson-red"] {
+  --bg-color: #1a0505;
+  --card-bg: #2b0b0b;
+  --accent-purple: #f43f5e;
+  --accent-glow: rgba(244, 63, 94, 0.4);
+  --text-color: #ffe4e6;
+  --text-dim: #fca5a5;
+}
+
+[data-theme="sunset-orange"] {
+  --bg-color: #1c0c02;
+  --card-bg: #2d1607;
+  --accent-purple: #f97316;
+  --accent-glow: rgba(249, 115, 22, 0.4);
+  --text-color: #ffedd5;
+  --text-dim: #fdba74;
+}
+
+[data-theme="gold-amber"] {
+  --bg-color: #1a1503;
+  --card-bg: #2b2207;
+  --accent-purple: #eab308;
+  --accent-glow: rgba(234, 179, 8, 0.4);
+  --text-color: #fef3c7;
+  --text-dim: #fde047;
+}
+
+[data-theme="hot-pink"] {
+  --bg-color: #1a0515;
+  --card-bg: #2b0b23;
+  --accent-purple: #ec4899;
+  --accent-glow: rgba(236, 72, 153, 0.4);
+  --text-color: #fce7f3;
+  --text-dim: #f472b6;
+}
+
+[data-theme="ocean-blue"] {
+  --bg-color: #071328;
+  --card-bg: #0d1f3d;
+  --accent-purple: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.4);
+  --text-color: #dbeafe;
+  --text-dim: #93c5fd;
+}
+
+[data-theme="emerald-mint"] {
+  --bg-color: #031a16;
+  --card-bg: #072b24;
+  --accent-purple: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.4);
+  --text-color: #d1fae5;
+  --text-dim: #6ee7b7;
+}
+
+[data-theme="dark-monochrome"] {
+  --bg-color: #0f0f11;
+  --card-bg: #1a1a1e;
+  --accent-purple: #e4e4e7;
+  --accent-glow: rgba(228, 228, 231, 0.3);
+  --text-color: #ffffff;
+  --text-dim: #a1a1aa;
+}
+
+/* ----------------------------------------------------
+   GENEL VE YÜZEY STİLLERİ
+   ---------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,32 +110,41 @@ body {
   align-items: center;
   padding: 20px;
   background-image: 
-    radial-gradient(circle at 50% 10%, rgba(168, 85, 247, 0.15), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(126, 34, 206, 0.1), transparent 30%);
+    radial-gradient(circle at 50% 10%, var(--accent-glow), transparent 40%),
+    radial-gradient(circle at 80% 80%, var(--accent-glow), transparent 30%);
+  transition: background-color 0.4s ease, color 0.4s ease, background-image 0.4s ease;
 }
 
 .container {
   width: 100%;
   max-width: 480px;
   background: var(--card-bg);
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  border: 1px solid var(--accent-purple);
   border-radius: 20px;
   padding: 30px 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
   text-align: center;
   backdrop-filter: blur(10px);
   position: relative;
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Dil Değiştirme Butonu */
-.lang-toggle {
+/* ----------------------------------------------------
+   ÜST KONTROL BUTONLARI VE TEMA SEÇİCİ
+   ---------------------------------------------------- */
+.header-actions {
   position: absolute;
   top: 18px;
   right: 20px;
-  background: rgba(168, 85, 247, 0.15);
+  display: flex;
+  gap: 8px;
+}
+
+.lang-toggle, .theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--accent-purple);
   color: var(--text-color);
-  padding: 5px 12px;
+  padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -56,15 +152,55 @@ body {
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
-.lang-toggle:hover {
+.lang-toggle:hover, .theme-toggle:hover {
   background: var(--accent-purple);
   color: #000;
   box-shadow: 0 0 10px var(--accent-purple);
 }
 
+.theme-picker-panel {
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--accent-purple);
+  padding: 12px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease;
+}
+
+.theme-picker-panel.active {
+  display: grid;
+}
+
+.theme-dot {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-dot:hover {
+  transform: scale(1.2);
+  border-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------------------------------
+   PROFİL VE BAĞLANTILAR
+   ---------------------------------------------------- */
 .profile-header h1 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -72,12 +208,14 @@ body {
   text-shadow: 0 0 12px var(--accent-purple);
   margin-bottom: 6px;
   margin-top: 10px;
+  transition: text-shadow 0.4s ease;
 }
 
 .profile-header p {
   color: var(--text-dim);
   font-size: 0.95rem;
   margin-bottom: 25px;
+  transition: color 0.4s ease;
 }
 
 .links-section {
@@ -116,7 +254,7 @@ body {
   width: 100%;
   padding: 14px 20px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  border: 1px solid var(--accent-purple);
   border-radius: 12px;
   color: #fff;
   text-decoration: none;
@@ -135,12 +273,12 @@ body {
   text-align: center;
 }
 
-/* Hover Efektleri ve Özel Renkler */
+/* Hover Efektleri */
 .link-btn:hover {
   transform: translateY(-3px);
   border-color: var(--accent-purple);
   box-shadow: 0 0 15px var(--accent-glow);
-  background: rgba(168, 85, 247, 0.15);
+  background: var(--accent-glow);
 }
 
 .link-btn.github:hover { border-color: #2ea44f; box-shadow: 0 0 15px rgba(46, 164, 79, 0.4); }
@@ -153,5 +291,5 @@ body {
   margin-top: 25px;
   font-size: 0.8rem;
   color: var(--text-dim);
+  transition: color 0.4s ease;
 }
-
