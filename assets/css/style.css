@@ -225,31 +225,39 @@ body {
   align-items: center;
 }
 
-/* Rscripts Embed Kartı */
+/* ----------------------------------------------------
+   EMBED KARTLARI (Rscripts & Iframely)
+   ---------------------------------------------------- */
 .embed-card {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .embed-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px var(--accent-glow);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .embed-card img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;
 }
 
-/* Sosyal Medya Buton Stilleri */
+.iframely-embed, .iframely-responsive {
+  width: 100% !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------
+   BUTON STİLLERİ (Gist / Sosyal Medya)
+   ---------------------------------------------------- */
 .link-btn {
   width: 100%;
   padding: 14px 20px;
@@ -273,7 +281,6 @@ body {
   text-align: center;
 }
 
-/* Hover Efektleri */
 .link-btn:hover {
   transform: translateY(-3px);
   border-color: var(--accent-purple);
@@ -281,12 +288,14 @@ body {
   background: var(--accent-glow);
 }
 
-.link-btn.github:hover { border-color: #2ea44f; box-shadow: 0 0 15px rgba(46, 164, 79, 0.4); }
-.link-btn.gist:hover { border-color: #79c0ff; box-shadow: 0 0 15px rgba(121, 192, 255, 0.4); }
-.link-btn.youtube:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
-.link-btn.curseforge:hover { border-color: #f16436; box-shadow: 0 0 15px rgba(241, 100, 54, 0.4); }
-.link-btn.discord:hover { border-color: #5865f2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
+.link-btn.gist:hover {
+  border-color: #79c0ff;
+  box-shadow: 0 0 15px rgba(121, 192, 255, 0.4);
+}
 
+/* ----------------------------------------------------
+   FOOTER
+   ---------------------------------------------------- */
 .footer {
   margin-top: 25px;
   font-size: 0.8rem;
