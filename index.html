@@ -17,14 +17,36 @@
 <body>
 
   <div class="container">
-    <!-- Dil Değiştirici -->
-    <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">
-      <i class="fa-solid fa-globe"></i> <span id="langBtnText">EN</span>
-    </button>
+    <!-- Üst Kontrol Butonları (Tema ve Dil) -->
+    <div class="header-actions">
+      <!-- Tema Seçim Paneli Açma Butonu -->
+      <button class="theme-toggle" id="themeBtn" onclick="toggleThemePanel()" title="Tema Değiştir">
+        <i class="fa-solid fa-palette"></i>
+      </button>
+
+      <!-- Dil Değiştirici -->
+      <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()" title="Dil Değiştir">
+        <i class="fa-solid fa-globe"></i> <span id="langBtnText">EN</span>
+      </button>
+    </div>
 
     <div class="profile-header">
       <h1>Purpleguy</h1>
       <p id="subTitle">Developer & Modder • SGM</p>
+    </div>
+
+    <!-- 10 Renkli Tema Seçim Paneli (Palet Butonuna Tıklanınca Açılır) -->
+    <div class="theme-picker-panel" id="themePicker">
+      <div class="theme-dot" style="background: #a855f7;" onclick="setTheme('purple')" title="Mor (Purple)"></div>
+      <div class="theme-dot" style="background: #06b6d4;" onclick="setTheme('cyber-cyan')" title="Siyan (Cyan)"></div>
+      <div class="theme-dot" style="background: #22c55e;" onclick="setTheme('matrix-green')" title="Matrix Yeşili"></div>
+      <div class="theme-dot" style="background: #f43f5e;" onclick="setTheme('crimson-red')" title="Kırmızı (Crimson)"></div>
+      <div class="theme-dot" style="background: #f97316;" onclick="setTheme('sunset-orange')" title="Gün Batımı (Sunset)"></div>
+      <div class="theme-dot" style="background: #eab308;" onclick="setTheme('gold-amber')" title="Altın (Gold)"></div>
+      <div class="theme-dot" style="background: #ec4899;" onclick="setTheme('hot-pink')" title="Pembe (Pink)"></div>
+      <div class="theme-dot" style="background: #3b82f6;" onclick="setTheme('ocean-blue')" title="Okyanus Mavisi"></div>
+      <div class="theme-dot" style="background: #10b981;" onclick="setTheme('emerald-mint')" title="Zümrüt (Emerald)"></div>
+      <div class="theme-dot" style="background: #e4e4e7;" onclick="setTheme('dark-monochrome')" title="Monokrom (Gri)"></div>
     </div>
 
     <div class="links-section">
