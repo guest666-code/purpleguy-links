@@ -1,29 +1,43 @@
-# 🛡️ Security Policy
+# 🛡️ Güvenlik Politikası (Security Policy)
 
-## 🔒 Supported Versions
+Bu proje, açık kaynak standartlarına uygun olarak güvenli ve temiz kod prensipleriyle geliştirilmiştir. 
 
-We continuously monitor and apply updates to keep this project secure. Only the latest version hosted on the main branch is actively supported.
+## 📦 Desteklenen Sürümler
 
-| Version | Supported          |
-| ------- | ------------------ |
-| Latest  | :white_check_mark: |
-| < 1.0   | :x:                |
+Aşağıdaki tabloda güvenlik güncellemeleri ve yamaları alan proje sürümleri belirtilmiştir:
+
+| Sürüm | Desteklenme Durumu |
+| :--- | :--- |
+| 1.0.x | :white_check_mark: Destekleniyor |
+| < 1.0 | :x: Desteklenmiyor |
 
 ---
 
-## 🚨 Reporting a Vulnerability
+## 🚨 Güvenlik Açığı Bildirimi (Reporting a Vulnerability)
 
-We take the security of our project seriously. If you discover a potential security vulnerability (e.g., exposed keys, cross-site scripting, or broken links), please do **NOT** open a public GitHub issue.
+Bu projede veya kullanılan bağımlılıklarda herhangi bir güvenlik açığı, hatalı yönlendirme veya zararlı kod tespiti yaparsanız lütfen bunu **kamusal bir GitHub Issue (Sorun) olarak açmak yerine** doğrudan aşağıdaki kanallardan bildiriniz:
 
-Instead, please report it privately through one of the following channels:
+1. **Discord:** [Discord Sunucumuz](https://discord.gg/M8rZKSXvVm) üzerinden yetkililere veya doğrudan **Purpleguy** geliştirici hesabına özel mesaj göndererek.
+2. **GitHub:** Geliştirici profilimiz olan [@guest666-code](https://github.com/guest666-code) üzerinden iletişime geçerek.
 
-- 💬 **Discord:** Contact via our official server at [Discord Server](https://discord.gg/M8rZKSXvVm)
-- 🐙 **GitHub:** Send a private report/message via [@guest666-code](https://github.com/guest666-code)
+### Bildirim Formatı
 
-### What to include in your report:
-1. Description of the vulnerability.
-2. Steps to reproduce the issue.
-3. Potential impact if exploited.
+Lütfen bildiriminizde şu ayrıntılara yer verin:
+* Güvenlik açığının tanımı ve potansiyel etkisi.
+* Açığı tekrar oluşturmak (reproduce) için adım adım talimatlar veya örnek kodlar.
+* Varsa çözüm öneriniz veya yama tavsiyeniz.
 
-We will review your submission and respond as quickly as possible to patch any confirmed security issues. Thank you for helping keep **Purpleguy** projects safe!
+---
 
+## 🔒 Güvenlik Ve Gizlilik Prensipleri
+
+* **Yerel Veri Depolama (LocalStorage):** Kullanıcının seçtiği tema tercihleri haricinde hiçbir kişisel veri veya hassas bilgi tarayıcı önbelleğinde saklanmaz.
+* **Dış Kaynaklar:** Sitede kullanılan dış ikonlar (FontAwesome) ve profil kartı API'leri (Rscripts) güvenilir HTTPS protokolü üzerinden çekilmektedir.
+* **Üçüncü Taraf Kodlar:** Proje tamamen hafif, saf JavaScript (Vanilla JS) mimarisiyle yazılmış olup zararlı izleme (tracking) veya reklam kodları içermez.
+
+---
+
+<p align="center">
+  Güvenliğe katkıda bulunan tüm geliştiricilere teşekkür ederiz! 🛡️<br>
+  <b>Purpleguy / SGM</b>
+</p>
