@@ -35,7 +35,8 @@
     </div>
 
     <div class="profile-header">
-      <h1>Purpleguy</h1>
+      <!-- Easter egg mobil tıklama tetikleyicisi id'si ekli -->
+      <h1 id="profileTitle" style="cursor: pointer;">Purpleguy</h1>
       <p id="subTitle" class="btn-text" data-tr="Geliştirici & Mod Yapımcısı • SGM" data-en="Developer & Modder • SGM">Geliştirici & Mod Yapımcısı • SGM</p>
     </div>
 
@@ -97,7 +98,17 @@
     </div>
   </div>
 
+  <!-- Gizli Çatlama Kaplaması & Bembeyaz 404 Ekranı -->
+  <div id="crackOverlay" class="crack-overlay"></div>
+  <div id="errorScreen" class="error-screen">
+    <h1>404 ERROR: Site Not Found</h1>
+  </div>
+
+  <!-- Özel Easter Egg MP3 Şarkısı -->
+  <audio id="easterSong" src="assets/audio/easter-song.mp3" preload="auto" loop></audio>
+
   <!-- Özel JS -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
