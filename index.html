@@ -8,6 +8,10 @@
   <!-- Favicon -->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
+  <!-- PWA Web App Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0d0a1a" />
+
   <!-- FontAwesome İkon Kütüphanesi -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -32,7 +36,7 @@
 
     <div class="profile-header">
       <h1>Purpleguy</h1>
-      <p id="subTitle">Developer & Modder • SGM</p>
+      <p id="subTitle" class="btn-text" data-tr="Geliştirici & Mod Yapımcısı • SGM" data-en="Developer & Modder • SGM">Geliştirici & Mod Yapımcısı • SGM</p>
     </div>
 
     <!-- 10 Renkli Tema Seçim Paneli (Palet Butonuna Tıklanınca Açılır) -->
@@ -57,46 +61,34 @@
         </a>
       </div>
 
-      <!-- GitHub Embed Kartı -->
-      <div class="embed-card">
-        <div class="iframely-embed">
-          <div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
-            <a href="https://github.com/guest666-code" data-iframely-url="https://iframely.net/eHjI6u8M?theme=dark"></a>
-          </div>
-        </div>
-      </div>
+      <!-- GitHub -->
+      <a href="https://github.com/guest666-code" target="_blank" class="link-btn github">
+        <i class="fa-brands fa-github"></i>
+        <span class="btn-text" data-tr="GitHub Profilim" data-en="GitHub Profile">GitHub Profilim</span>
+      </a>
 
-      <!-- YouTube Embed Kartı -->
-      <div class="embed-card">
-        <div class="iframely-embed">
-          <div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
-            <a href="https://www.youtube.com/@efemert2128" data-iframely-url="https://iframely.net/jCm3jVI4?theme=dark"></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CurseForge Embed Kartı -->
-      <div class="embed-card">
-        <div class="iframely-embed">
-          <div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
-            <a href="https://www.curseforge.com/members/purpleguy198716/projects" data-iframely-url="https://iframely.net/gVGlgRUe?theme=dark"></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Discord Sunucusu Embed Kartı -->
-      <div class="embed-card">
-        <div class="iframely-embed">
-          <div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
-            <a href="https://discord.com/invite/M8rZKSXvVm" data-iframely-url="https://iframely.net/xp7s4foK?theme=dark"></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- GitHub Gist (En Altta Sade Buton Olarak) -->
-      <a href="https://gist.github.com/guest666-code" target="_blank" class="link-btn gist" style="margin-top: 5px;">
+      <!-- GitHub Gist -->
+      <a href="https://gist.github.com/guest666-code" target="_blank" class="link-btn gist">
         <i class="fa-solid fa-code"></i>
         <span class="btn-text" data-tr="GitHub Gists (Kodlarım)" data-en="GitHub Gists (Code Snippets)">GitHub Gists (Kodlarım)</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@efemert2128" target="_blank" class="link-btn youtube">
+        <i class="fa-brands fa-youtube"></i>
+        <span class="btn-text" data-tr="YouTube Kanalım" data-en="YouTube Channel">YouTube Kanalım</span>
+      </a>
+
+      <!-- CurseForge -->
+      <a href="https://www.curseforge.com/members/purpleguy198716/projects" target="_blank" class="link-btn curseforge">
+        <i class="fa-solid fa-fire"></i>
+        <span class="btn-text" data-tr="CurseForge Modlarım" data-en="CurseForge Mods">CurseForge Modlarım</span>
+      </a>
+
+      <!-- Discord Sunucusu -->
+      <a href="https://discord.gg/M8rZKSXvVm" target="_blank" class="link-btn discord">
+        <i class="fa-brands fa-discord"></i>
+        <span class="btn-text" data-tr="Discord Sunucum" data-en="Discord Server">Discord Sunucum</span>
       </a>
     </div>
 
@@ -104,9 +96,6 @@
       © 2026 Purpleguy • SGM
     </div>
   </div>
-
-  <!-- Iframely Asenkron Embed Scripti -->
-  <script async src="https://iframely.net/embed.js"></script>
 
   <!-- Özel JS -->
   <script src="assets/js/main.js"></script>
