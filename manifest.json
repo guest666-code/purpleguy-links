@@ -1,21 +1,24 @@
 {
-  "name": "Purpleguy | Bio & Links",
+  "name": "Purpleguy | Personal Profile & Links",
   "short_name": "Purpleguy",
-  "description": "Purpleguy Developer & Modder Link Hub",
-  "start_url": "/",
+  "description": "Purpleguy (SGM) Developer & Modder Personal Cyber-Neon Profile",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d0a1a",
-  "theme_color": "#a855f7",
+  "theme_color": "#0d0a1a",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "assets/images/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "assets/images/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
