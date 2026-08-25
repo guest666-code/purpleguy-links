@@ -1,304 +1,73 @@
 /* ----------------------------------------------------
-   10 FARKLI CYBER-NEON TEMA SİSTEMİ
+   AÇILIŞ ANİMASYONLARI (FADE-IN & SLIDE-UP)
    ---------------------------------------------------- */
-:root, [data-theme="purple"] {
-  --bg-color: #0d0a1a;
-  --card-bg: #16122b;
-  --accent-purple: #a855f7;
-  --accent-glow: rgba(168, 85, 247, 0.4);
-  --text-color: #f3e8ff;
-  --text-dim: #a8a29e;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-[data-theme="cyber-cyan"] {
-  --bg-color: #06181d;
-  --card-bg: #0b252c;
-  --accent-purple: #06b6d4;
-  --accent-glow: rgba(6, 182, 212, 0.4);
-  --text-color: #e0f2fe;
-  --text-dim: #94a3b8;
-}
-
-[data-theme="matrix-green"] {
-  --bg-color: #051a0e;
-  --card-bg: #0b2b18;
-  --accent-purple: #22c55e;
-  --accent-glow: rgba(34, 197, 94, 0.4);
-  --text-color: #dcfce7;
-  --text-dim: #86efac;
-}
-
-[data-theme="crimson-red"] {
-  --bg-color: #1a0505;
-  --card-bg: #2b0b0b;
-  --accent-purple: #f43f5e;
-  --accent-glow: rgba(244, 63, 94, 0.4);
-  --text-color: #ffe4e6;
-  --text-dim: #fca5a5;
-}
-
-[data-theme="sunset-orange"] {
-  --bg-color: #1c0c02;
-  --card-bg: #2d1607;
-  --accent-purple: #f97316;
-  --accent-glow: rgba(249, 115, 22, 0.4);
-  --text-color: #ffedd5;
-  --text-dim: #fdba74;
-}
-
-[data-theme="gold-amber"] {
-  --bg-color: #1a1503;
-  --card-bg: #2b2207;
-  --accent-purple: #eab308;
-  --accent-glow: rgba(234, 179, 8, 0.4);
-  --text-color: #fef3c7;
-  --text-dim: #fde047;
-}
-
-[data-theme="hot-pink"] {
-  --bg-color: #1a0515;
-  --card-bg: #2b0b23;
-  --accent-purple: #ec4899;
-  --accent-glow: rgba(236, 72, 153, 0.4);
-  --text-color: #fce7f3;
-  --text-dim: #f472b6;
-}
-
-[data-theme="ocean-blue"] {
-  --bg-color: #071328;
-  --card-bg: #0d1f3d;
-  --accent-purple: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.4);
-  --text-color: #dbeafe;
-  --text-dim: #93c5fd;
-}
-
-[data-theme="emerald-mint"] {
-  --bg-color: #031a16;
-  --card-bg: #072b24;
-  --accent-purple: #10b981;
-  --accent-glow: rgba(16, 185, 129, 0.4);
-  --text-color: #d1fae5;
-  --text-dim: #6ee7b7;
-}
-
-[data-theme="dark-monochrome"] {
-  --bg-color: #0f0f11;
-  --card-bg: #1a1a1e;
-  --accent-purple: #e4e4e7;
-  --accent-glow: rgba(228, 228, 231, 0.3);
-  --text-color: #ffffff;
-  --text-dim: #a1a1aa;
-}
-
-/* ----------------------------------------------------
-   GENEL VE YÜZEY STİLLERİ
-   ---------------------------------------------------- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-image: 
-    radial-gradient(circle at 50% 10%, var(--accent-glow), transparent 40%),
-    radial-gradient(circle at 80% 80%, var(--accent-glow), transparent 30%);
-  transition: background-color 0.4s ease, color 0.4s ease, background-image 0.4s ease;
-}
-
+/* Kapsayıcı kartın açılış animasyonu */
 .container {
-  width: 100%;
-  max-width: 480px;
-  background: var(--card-bg);
-  border: 1px solid var(--accent-purple);
-  border-radius: 20px;
-  padding: 30px 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
-  text-align: center;
-  backdrop-filter: blur(10px);
-  position: relative;
-  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Link butonlarının sırayla (staggered) belirmesi */
+.links-section > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Sırayla gelme süreleri */
+.links-section > *:nth-child(1) { animation-delay: 0.1s; }
+.links-section > *:nth-child(2) { animation-delay: 0.2s; }
+.links-section > *:nth-child(3) { animation-delay: 0.3s; }
+.links-section > *:nth-child(4) { animation-delay: 0.4s; }
+.links-section > *:nth-child(5) { animation-delay: 0.5s; }
+.links-section > *:nth-child(6) { animation-delay: 0.6s; }
 
 /* ----------------------------------------------------
-   ÜST KONTROL BUTONLARI VE TEMA SEÇİCİ
-   ---------------------------------------------------- */
-.header-actions {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  display: flex;
-  gap: 8px;
-}
-
-.lang-toggle, .theme-toggle {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--accent-purple);
-  color: var(--text-color);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lang-toggle:hover, .theme-toggle:hover {
-  background: var(--accent-purple);
-  color: #000;
-  box-shadow: 0 0 10px var(--accent-purple);
-}
-
-.theme-picker-panel {
-  display: none;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--accent-purple);
-  padding: 12px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-  margin-top: 15px;
-  animation: fadeIn 0.3s ease;
-}
-
-.theme-picker-panel.active {
-  display: grid;
-}
-
-.theme-dot {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.theme-dot:hover {
-  transform: scale(1.2);
-  border-color: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ----------------------------------------------------
-   PROFİL VE BAĞLANTILAR
-   ---------------------------------------------------- */
-.profile-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 12px var(--accent-purple);
-  margin-bottom: 6px;
-  margin-top: 10px;
-  transition: text-shadow 0.4s ease;
-}
-
-.profile-header p {
-  color: var(--text-dim);
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-  transition: color 0.4s ease;
-}
-
-.links-section {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-}
-
-/* ----------------------------------------------------
-   EMBED KARTLARI (Rscripts & Iframely)
-   ---------------------------------------------------- */
-.embed-card {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.2);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.embed-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 15px var(--accent-glow);
-}
-
-.embed-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.iframely-embed, .iframely-responsive {
-  width: 100% !important;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* ----------------------------------------------------
-   BUTON STİLLERİ (Gist / Sosyal Medya)
+   EKSTRA GELİŞMİŞ HOVER EFEKTLERİ
    ---------------------------------------------------- */
 .link-btn {
-  width: 100%;
-  padding: 14px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--accent-purple);
-  border-radius: 12px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
+/* Butonun içindeki ikona hafif dönme/büyüme animasyonu */
 .link-btn i {
-  font-size: 1.3rem;
-  width: 25px;
-  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.link-btn:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 15px var(--accent-glow);
-  background: var(--accent-glow);
+.link-btn:hover i {
+  transform: scale(1.25) rotate(-8deg);
 }
 
-.link-btn.gist:hover {
-  border-color: #79c0ff;
-  box-shadow: 0 0 15px rgba(121, 192, 255, 0.4);
+/* Üzerine gelindiğinde soldan sağa kayan parlama (Shimmer) */
+.link-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+  z-index: -1;
 }
 
-/* ----------------------------------------------------
-   FOOTER
-   ---------------------------------------------------- */
-.footer {
-  margin-top: 25px;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  transition: color 0.4s ease;
+.link-btn:hover::before {
+  left: 150%;
 }
