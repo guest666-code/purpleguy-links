@@ -13,7 +13,7 @@ function toggleLanguage() {
     langBtnText.textContent = currentLang === 'TR' ? 'EN' : 'TR';
   }
 
-  // Sitedeki tum [data-tr] ve [data-en] etiketli metinleri güncelle
+  // Sitedeki tüm [data-tr] ve [data-en] etiketli metinleri güncelle
   const elements = document.querySelectorAll('[data-tr]');
   elements.forEach(el => {
     if (currentLang === 'TR') {
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setTheme(savedTheme);
 });
 
-// --- 3. EASTER EGG TETİKLEYİCİLERİ (KLAVYE VE MOBİL) ---
+// --- 3. EASTER EGG TETİKLEYİCİLERİ (KLAVYE VE MOBİL/TABLET) ---
 
 // 3.1. Klavye Konami Kodu (Yukarı, Yukarı, Aşağı, Aşağı, Sol, Sağ, Sol, Sağ, B, A)
 const konamiCode = [
@@ -69,35 +69,31 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// 3.2. Mobil İçin 5 Kez Profil Başlığına Tıklama Tetikleyicisi
-let titleClickCount = 0;
-let titleClickTimer = null;
+// 3.2. Mobil & Tablet İçin 5 Kez Profil Başlığına Tıklama Sayacı
+let tapCount = 0;
+let tapTimer = null;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const profileTitle = document.getElementById('profileTitle');
-  
-  if (profileTitle) {
-    profileTitle.addEventListener('click', () => {
-      titleClickCount++;
-      
-      clearTimeout(titleClickTimer);
-      titleClickTimer = setTimeout(() => {
-        titleClickCount = 0;
-      }, 2000); // 2 saniye içinde tıklanmazsa sayacı sıfırla
+function registerTap() {
+  tapCount++;
 
-      if (titleClickCount >= 5) {
-        triggerEasterEgg();
-        titleClickCount = 0;
-      }
-    });
+  // 3 saniye içinde 5 kere art arda basılması yeterli
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => {
+    tapCount = 0;
+  }, 3000);
+
+  // 5 kere basıldığında epik kıyamet senaryosu başlar!
+  if (tapCount >= 5) {
+    tapCount = 0;
+    triggerEasterEgg();
   }
-});
+}
 
-// --- 4. GİZLİ SİSTEM ÇÖKME VE 404 EASTER EGG SENARYOSU ---
+// --- 4. GİZLİ SİSTEM ÇÖKME VE 404 EASTER EGG SENARYOSU (3 DAKİKA 36 SANİYE) ---
 let isEasterEggActive = false;
 
 function triggerEasterEgg() {
-  if (isEasterEggActive) return; // Birden fazla kez basılmasını engelle
+  if (isEasterEggActive) return; // Birden fazla kez tetiklenmesini önle
   isEasterEggActive = true;
 
   const song = document.getElementById('easterSong');
@@ -108,35 +104,35 @@ function triggerEasterEgg() {
     song.play().catch(err => console.log("Oynatma engellendi:", err));
   }
 
-  // B. Ekran Şiddetle Sallanmaya Başlar (Deprem Efekti)
+  // B. Ekran Sallantısını Başlat
   document.body.classList.add('shake-active');
 
-  // C. Butonlar ve Kartlar TEK TEK Yerçekimiyle Düşmeye Başlar
+  // C. Butonlar 3 Dakikalık Süreye Yayılarak Tek Tek Düşer
   const targets = Array.from(document.querySelectorAll('.profile-header, .header-actions, .links-section > *'));
 
   targets.forEach((el, index) => {
+    // İlk düşüş 15. saniyede başlar, diğerleri 20'şer saniye arayla kayar
+    const fallDelay = 15000 + (index * 20000); 
+
     setTimeout(() => {
-      // Rastgele sağa/sola savrulma ve dönme açısı
-      const randomRotate = (Math.random() - 0.5) * 120;
-      const randomX = (Math.random() - 0.5) * 300;
+      const randomRotate = (Math.random() - 0.5) * 90;
+      const randomX = (Math.random() - 0.5) * 250;
       
       el.classList.add('falling-element');
       el.style.transform = `translate(${randomX}px, 110vh) rotate(${randomRotate}deg)`;
       el.style.opacity = '0';
-    }, 1200 + (index * 400)); // Her eleman 0.4 saniye arayla düşer
+    }, fallDelay);
   });
 
-  // D. Tüm Butonlar Düşünce Kart Çerçevesi Yarılır ve Düşer
-  const totalFallTime = 1200 + (targets.length * 400) + 400;
-
+  // D. 3 Dakika 33. Saniyede (213,000 ms) Ana Kapsayıcı Yarılıp Düşer
   setTimeout(() => {
     const container = document.querySelector('.container');
     if (container) {
       container.classList.add('shatter-fall');
     }
-  }, totalFallTime);
+  }, 213000);
 
-  // E. Bembeyaz 404 Ekranı Gelir
+  // E. Tam 3 Dakika 36 Saniyede (216,000 ms) Bembeyaz 404 Ekranı Gelir
   setTimeout(() => {
     document.body.classList.remove('shake-active'); // Sallantıyı durdur
 
@@ -145,10 +141,10 @@ function triggerEasterEgg() {
       errorScreen.classList.add('show');
     }
 
-    // F. 3 Saniye Sonra Sayfa Sıfırlanır (Hiçbir Şey Olmamış Gibi!)
+    // F. 3 Saniye Sonra Sayfa Hiçbir Şey Olmamış Gibi Başa Döner
     setTimeout(() => {
       window.location.reload();
     }, 3000);
 
-  }, totalFallTime + 1200);
+  }, 216000); // Toplam süre: 3 dakika 36 saniye!
 }
