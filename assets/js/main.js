@@ -1,18 +1,44 @@
-/* ----------------------------------------------------
-   1. TEMA VE YÜZEY YÖNETİMİ (10 NEON TEMA)
-   ---------------------------------------------------- */
+let currentLang = localStorage.getItem('site_lang') || 'tr';
+let currentTheme = localStorage.getItem('site_theme') || 'purple';
 
-// Kayıtlı temayı yükle veya varsayılan olarak 'purple' kullan
-const savedTheme = localStorage.getItem('selectedTheme') || 'purple';
-setTheme(savedTheme);
+// --- DİL MANTIĞI ---
+function updateLanguage() {
+  const elements = document.querySelectorAll('.btn-text');
+  elements.forEach(el => {
+    const translation = el.getAttribute(`data-${currentLang}`);
+    if (translation) {
+      el.textContent = translation;
+    }
+  });
 
-// Tema değiştirme fonksiyonu
-function setTheme(themeName) {
-  document.documentElement.setAttribute('data-theme', themeName);
-  localStorage.setItem('selectedTheme', themeName);
+  const langBtnText = document.getElementById('langBtnText');
+  if (langBtnText) {
+    langBtnText.textContent = currentLang === 'tr' ? 'EN' : 'TR';
+  }
+  
+  localStorage.setItem('site_lang', currentLang);
 }
 
-// Tema seçim panelini aç/kapat
+function toggleLanguage() {
+  currentLang = currentLang === 'tr' ? 'en' : 'tr';
+  updateLanguage();
+}
+
+// --- TEMA MANTIĞI (10 TEMA) ---
+function setTheme(themeName) {
+  currentTheme = themeName;
+  document.documentElement.setAttribute('data-theme', themeName);
+  localStorage.setItem('site_theme', themeName);
+  
+  // Rscripts Embed Kartının Teması
+  const embedImg = document.querySelector('.embed-card img');
+  if (embedImg) {
+    // Sadece açık/parlak arka planı olan temalarda light yap
+    const isLight = themeName === 'gold-amber';
+    embedImg.src = `https://rscripts.net/api/embed/user/Purpleguy198716?theme=${isLight ? 'light' : 'dark'}`;
+  }
+}
+
 function toggleThemePanel() {
   const panel = document.getElementById('themePicker');
   if (panel) {
@@ -20,67 +46,17 @@ function toggleThemePanel() {
   }
 }
 
-/* ----------------------------------------------------
-   2. BİLİNGUAL DİL DEĞİŞTİRİCİ (TR / EN)
-   ---------------------------------------------------- */
+// --- ETKİLEŞİM DİNLENİCİLERİ ---
+document.addEventListener('DOMContentLoaded', () => {
+  updateLanguage();
+  setTheme(currentTheme);
+});
 
-const translations = {
-  tr: {
-    subTitle: "Developer & Modder • SGM",
-    langBtnText: "EN"
-  },
-  en: {
-    subTitle: "Developer & Modder • SGM",
-    langBtnText: "TR"
+// Tema paneli dışına tıklandığında paneli kapat
+document.addEventListener('click', (e) => {
+  const panel = document.getElementById('themePicker');
+  const btn = document.getElementById('themeBtn');
+  if (panel && btn && !panel.contains(e.target) && !btn.contains(e.target)) {
+    panel.classList.remove('active');
   }
-};
-
-// Kayıtlı dili yükle veya varsayılan olarak 'tr' kullan
-let currentLang = localStorage.getItem('selectedLang') || 'tr';
-updateLanguageUI(currentLang);
-
-function toggleLanguage() {
-  currentLang = currentLang === 'tr' ? 'en' : 'tr';
-  localStorage.setItem('selectedLang', currentLang);
-  updateLanguageUI(currentLang);
-}
-
-function updateLanguageUI(lang) {
-  // Alt başlık metni
-  const subTitleEl = document.getElementById('subTitle');
-  if (subTitleEl && translations[lang]) {
-    subTitleEl.textContent = translations[lang].subTitle;
-  }
-
-  // Dil butonu metni
-  const langBtnTextEl = document.getElementById('langBtnText');
-  if (langBtnTextEl && translations[lang]) {
-    langBtnTextEl.textContent = translations[lang].langBtnText;
-  }
-
-  // Buton metinlerini güncelle (data-tr ve data-en öznitelikleri üzerinden)
-  const translatableElements = document.querySelectorAll('[data-tr][data-en]');
-  translatableElements.forEach((el) => {
-    const text = el.getAttribute(`data-${lang}`);
-    if (text) {
-      el.textContent = text;
-    }
-  });
-}
-
-/* ----------------------------------------------------
-   3. PWA SERVICE WORKER KAYDI
-   ---------------------------------------------------- */
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('./sw.js')
-      .then((reg) => {
-        console.log('Service Worker başarıyla kaydedildi:', reg.scope);
-      })
-      .catch((err) => {
-        console.error('Service Worker kaydı başarısız:', err);
-      });
-  });
-}
+});
