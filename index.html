@@ -1,114 +1,121 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="purple">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Purpleguy | Sosyal Medya & Profiller</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purpleguy | Personal Profile & Links</title>
+  
+  <!-- PWA ve Meta Etiketleri -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#0d0a1a">
+  <meta name="description" content="Purpleguy (SGM) Developer & Modder Personal Cyber-Neon Profile">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-
-  <!-- PWA Web App Manifest -->
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0d0a1a" />
-
-  <!-- FontAwesome İkon Kütüphanesi -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Özel CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Font Awesome İkonları -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Ana Stil Dosyası -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <div class="container">
-    <!-- Üst Kontrol Butonları (Tema ve Dil) -->
-    <div class="header-actions">
-      <!-- Tema Seçim Paneli Açma Butonu -->
-      <button class="theme-toggle" id="themeBtn" onclick="toggleThemePanel()" title="Tema Değiştir">
-        <i class="fa-solid fa-palette"></i>
-      </button>
-
-      <!-- Dil Değiştirici -->
-      <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()" title="Dil Değiştir">
-        <i class="fa-solid fa-globe"></i> <span id="langBtnText">EN</span>
-      </button>
-    </div>
-
-    <div class="profile-header">
-      <!-- Easter egg mobil tıklama tetikleyicisi id'si ekli -->
-      <h1 id="profileTitle" style="cursor: pointer;">Purpleguy</h1>
-      <p id="subTitle" class="btn-text" data-tr="Geliştirici & Mod Yapımcısı • SGM" data-en="Developer & Modder • SGM">Geliştirici & Mod Yapımcısı • SGM</p>
-    </div>
-
-    <!-- 10 Renkli Tema Seçim Paneli (Palet Butonuna Tıklanınca Açılır) -->
-    <div class="theme-picker-panel" id="themePicker">
-      <div class="theme-dot" style="background: #a855f7;" onclick="setTheme('purple')" title="Mor (Purple)"></div>
-      <div class="theme-dot" style="background: #06b6d4;" onclick="setTheme('cyber-cyan')" title="Siyan (Cyan)"></div>
-      <div class="theme-dot" style="background: #22c55e;" onclick="setTheme('matrix-green')" title="Matrix Yeşili"></div>
-      <div class="theme-dot" style="background: #f43f5e;" onclick="setTheme('crimson-red')" title="Kırmızı (Crimson)"></div>
-      <div class="theme-dot" style="background: #f97316;" onclick="setTheme('sunset-orange')" title="Gün Batımı (Sunset)"></div>
-      <div class="theme-dot" style="background: #eab308;" onclick="setTheme('gold-amber')" title="Altın (Gold)"></div>
-      <div class="theme-dot" style="background: #ec4899;" onclick="setTheme('hot-pink')" title="Pembe (Pink)"></div>
-      <div class="theme-dot" style="background: #3b82f6;" onclick="setTheme('ocean-blue')" title="Okyanus Mavisi"></div>
-      <div class="theme-dot" style="background: #10b981;" onclick="setTheme('emerald-mint')" title="Zümrüt (Emerald)"></div>
-      <div class="theme-dot" style="background: #e4e4e7;" onclick="setTheme('dark-monochrome')" title="Monokrom (Gri)"></div>
-    </div>
-
-    <div class="links-section">
-      <!-- Sadece Rscripts Embed Kartı -->
-      <div class="embed-card">
-        <a href="https://rscripts.net/user/Purpleguy198716" target="_blank" rel="noopener noreferrer">
-          <img alt="Purpleguy198716 on Rscripts" loading="lazy" width="360" height="132" src="https://rscripts.net/api/embed/user/Purpleguy198716?theme=dark" />
-        </a>
-      </div>
-
-      <!-- GitHub Butonu -->
-      <a href="https://github.com/guest666-code" target="_blank" class="link-btn github">
-        <i class="fa-brands fa-github"></i>
-        <span class="btn-text" data-tr="GitHub Profilim" data-en="GitHub Profile">GitHub Profilim</span>
-      </a>
-
-      <!-- GitHub Gist Butonu -->
-      <a href="https://gist.github.com/guest666-code" target="_blank" class="link-btn gist">
-        <i class="fa-solid fa-code"></i>
-        <span class="btn-text" data-tr="GitHub Gists (Kodlarım)" data-en="GitHub Gists (Code Snippets)">GitHub Gists (Kodlarım)</span>
-      </a>
-
-      <!-- YouTube Butonu -->
-      <a href="https://www.youtube.com/@efemert2128" target="_blank" class="link-btn youtube">
-        <i class="fa-brands fa-youtube"></i>
-        <span class="btn-text" data-tr="YouTube Kanalım" data-en="YouTube Channel">YouTube Kanalım</span>
-      </a>
-
-      <!-- CurseForge Butonu -->
-      <a href="https://www.curseforge.com/members/purpleguy198716/projects" target="_blank" class="link-btn curseforge">
-        <i class="fa-solid fa-fire"></i>
-        <span class="btn-text" data-tr="CurseForge Modlarım" data-en="CurseForge Mods">CurseForge Modlarım</span>
-      </a>
-
-      <!-- Discord Sunucusu Butonu -->
-      <a href="https://discord.gg/M8rZKSXvVm" target="_blank" class="link-btn discord">
-        <i class="fa-brands fa-discord"></i>
-        <span class="btn-text" data-tr="Discord Sunucum" data-en="Discord Server">Discord Sunucum</span>
-      </a>
-    </div>
-
-    <div class="footer">
-      © 2026 Purpleguy • SGM
-    </div>
-  </div>
-
-  <!-- Gizli Çatlama Kaplaması & Bembeyaz 404 Ekranı -->
-  <div id="crackOverlay" class="crack-overlay"></div>
-  <div id="errorScreen" class="error-screen">
-    <h1>404 ERROR: Site Not Found</h1>
-  </div>
-
-  <!-- Özel Easter Egg MP3 Şarkısı -->
+  <!-- Arka Plan Easter Egg Gizli Şarkısı -->
   <audio id="easterSong" src="assets/audio/easter-song.mp3" preload="auto" loop></audio>
 
-  <!-- Özel JS -->
+  <!-- Ust Araç Çubuğu (Tema Seçici ve Dil Butonu) -->
+  <header class="top-bar">
+    <div class="theme-switch-container">
+      <button class="icon-btn" onclick="toggleThemePanel()" title="Tema Seç">
+        <i class="fa-solid fa-palette"></i>
+      </button>
+      
+      <!-- 10 Neon Tema Paneli -->
+      <div id="themePicker" class="theme-picker-panel">
+        <button class="theme-opt purple" onclick="setTheme('purple')" title="Purple Neon"></button>
+        <button class="theme-opt cyan" onclick="setTheme('cyan')" title="Cyber Cyan"></button>
+        <button class="theme-opt green" onclick="setTheme('green')" title="Matrix Green"></button>
+        <button class="theme-opt red" onclick="setTheme('red')" title="Crimson Red"></button>
+        <button class="theme-opt gold" onclick="setTheme('gold')" title="Gold Cyber"></button>
+        <button class="theme-opt pink" onclick="setTheme('pink')" title="Hot Pink"></button>
+        <button class="theme-opt blue" onclick="setTheme('blue')" title="Deep Blue"></button>
+        <button class="theme-opt orange" onclick="setTheme('orange')" title="Neon Orange"></button>
+        <button class="theme-opt lime" onclick="setTheme('lime')" title="Acid Lime"></button>
+        <button class="theme-opt dark" onclick="setTheme('dark')" title="Pitch Black"></button>
+      </div>
+    </div>
+
+    <!-- Dil Değiştirme Butonu -->
+    <button class="icon-btn lang-btn" onclick="toggleLanguage()" title="Language / Dil">
+      <i class="fa-solid fa-globe"></i>
+      <span id="langBtnText">EN</span>
+    </button>
+  </header>
+
+  <!-- Ana İçerik Kapsayıcısı -->
+  <main class="container">
+    
+    <!-- Profil Başlığı ve Avatarlar -->
+    <section class="profile-header">
+      <div class="avatar-wrapper">
+        <img src="assets/images/icon-192.png" alt="Purpleguy Profile" class="profile-avatar">
+      </div>
+      
+      <!-- Easter Egg Tetikleyicisi (5 Kez Dokunma) -->
+      <h1 id="profileTitle" onclick="registerTap()" style="cursor: pointer; user-select: none; -webkit-user-select: none;" data-tr="Purpleguy" data-en="Purpleguy">Purpleguy</h1>
+      
+      <p class="bio" data-tr="Geliştirici & Minecraft Bedrock Modder | SGM" data-en="Developer & Minecraft Bedrock Modder | SGM">Geliştirici & Minecraft Bedrock Modder | SGM</p>
+    </section>
+
+    <!-- Sosyal Bağlantılar ve Linkler -->
+    <section class="links-section">
+      <a href="https://github.com/guest666-code" target="_blank" rel="noopener noreferrer" class="link-card">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://www.curseforge.com/members/purpleguy198716/projects" target="_blank" rel="noopener noreferrer" class="link-card">
+        <i class="fa-solid fa-cube"></i>
+        <span>CurseForge (Minecraft Add-ons)</span>
+      </a>
+
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="link-card">
+        <i class="fa-brands fa-youtube"></i>
+        <span>YouTube</span>
+      </a>
+
+      <a href="https://discord.gg/M8rZKSXvVm" target="_blank" rel="noopener noreferrer" class="link-card">
+        <i class="fa-brands fa-discord"></i>
+        <span>Discord Sunucumuz</span>
+      </a>
+    </section>
+
+    <!-- Alt Bilgi (Footer) -->
+    <footer class="footer">
+      <p>© 2026 Purpleguy (SGM). MIT License.</p>
+    </footer>
+
+  </main>
+
+  <!-- 3dk 36sn Sonra Açılacak Bembeyaz 404 Ekranı -->
+  <div id="errorScreen" class="error-screen">
+    <div class="error-content">
+      <h1>404</h1>
+      <p data-tr="SİSTEM ÇÖKTÜ: Baglantı Kesildi" data-en="SYSTEM CRASH: Connection Lost">SİSTEM ÇÖKTÜ: Bağlantı Kesildi</p>
+    </div>
+  </div>
+
+  <!-- JavaScript Kod Dosyası -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- PWA Service Worker Kaydı -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW Kayıtlı:', reg.scope))
+          .catch(err => console.log('SW Hata:', err));
+      });
+    }
+  </script>
 </body>
 </html>
-
